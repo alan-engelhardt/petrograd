@@ -1,6 +1,11 @@
 let main = document.querySelector("main");
+let modal = document.querySelector(".modal");
 let categories_link = "http://kea-alt-del.dk/t5/api/categories";
 let product_link = "http://kea-alt-del.dk/t5/api/product?id=";
+
+modal.addEventListener("click", function(){
+	modal.style.display="none";
+})
 
 function loadJSON(link, process, container=null){
 	fetch(link).then(e=>e.json()).then(data=>process(data, container));
@@ -49,6 +54,12 @@ function showList(data, container){
 
 function showDetails(data){
 	console.log(data);
+	modal.style.display="block";
+	modal.querySelector(".modal-name").textContent = data.name;
+	modal.querySelector(".modal-image").src = "http://kea-alt-del.dk/t5/site/imgs/small/" + data.image + "-sm.jpg";
+	modal.querySelector(".modal-description").textContent = data.longdescription;
+	modal.querySelector(".modal-price").textContent = "Price: " + data.price;
+	modal.querySelector(".modal-discount").textContent = "Now: " + Math.floor(product.price*product.discount/100) + ",-";
 }
 
 loadJSON(categories_link, loopCategories);
