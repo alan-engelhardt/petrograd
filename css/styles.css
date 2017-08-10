@@ -15,7 +15,7 @@ h3{
 	font-size: 24px;
 }
 nav{
-	text-align: right;
+	text-align: center;
 	padding: 1em;
 	background-color: #000;
 	position: fixed;
@@ -26,11 +26,7 @@ nav a{
 	color: #9d9d9d;
 	text-decoration: none;
 	margin: 0 1em;
-}
-nav a:first-child{
-	float: left;
-	font-size: 18px;
-	line-height: 20px;
+	display: none;
 }
 header{
 	background-image: url(../images/backgr.jpg);
@@ -38,7 +34,7 @@ header{
 }
 .logo{
 	margin: 2em;
-	margin-top: 6em;
+	margin-top: 4em;
 }
 .page-header{
 	text-transform: capitalize;
@@ -50,17 +46,30 @@ section img{
 	width: 100%;
 }
 .list-product{
-	box-sizing: border-box;
-	padding: 1em;
+	margin: .5em;
+	padding: .5em;
 }
 .price{
 	color: #7c1f17;
 }
-
 @media (min-width: 600px){
 	section{
 		display: grid;
 		grid-template-columns: 1fr 1fr;
+	}
+	nav{
+		text-align: right;
+	}
+	nav a{
+		display: inline;
+	}
+	nav a:first-child{
+		float: left;
+		font-size: 25px;
+		line-height: 20px;
+	}
+	.list-product{
+		border: solid 1px #7c1f17;
 	}
 }
 
