@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Petrograd</title>
+		<link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="css/styles.css">
+	</head>
+
+	<body>
+		<nav>
+			<a href="index.html">Petrograd</a>
+			<a href="#">About</a>
+			<a href="#">Menu</a>
+			<a href="#">Reserve</a>
+		</nav>
+		<header>
+			<img class="logo" src="images/logo.png">
+		</header>
+
+		<section></section>
+
+		<template class="product">
+			<article class="list-product">
+				<a href="data-big-image">
+					<img class="product-small-img" src="data-small-img" alt="data-caption">
+				</a>
+				<h3 class="name">data-name</h3>
+				<p class="category">data-category</p>
+				<h4 class="price"><span>data-price</span> kr.</h4>
+				<button>details</button>
+			</article>
+		</template>
+
+		<script>
+			let productlist_link = "http://kea-alt-del.dk/t5/api/productlist";
+			let image_path = "http://kea-alt-del.dk/t5/site/imgs/small/";
+			let section = document.querySelector('section');
+			let template = document.querySelector('.product').content;
+
+			function getData(link){
+				fetch(link).then(function(response){
+					return response.json();
+				}).then(function(json){
+					return show(json);
+				});
+			}
+
+			function show(json){
+				json.forEach(function(product){
+					console.log(product.name + " kr " + product.price);
+					let clone = template.cloneNode(true);
+					clone.querySelector('.name').textContent=product.name;
+					section.appendChild(clone);
+				});
+			}
+
+
+			getData(productlist_link);
+		</script>
+
+	</body>
+</html>
+
+
+
+
+
+

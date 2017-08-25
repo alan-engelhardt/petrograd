@@ -42,7 +42,7 @@ header{
 	margin: 40px 0 20px 20px;
 	border-bottom: 1px solid #7c1f17;
 }
-section img{
+section img, .modal img{
 	width: 100%;
 }
 .list-product{
@@ -54,25 +54,27 @@ section img{
 }
 
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	padding-top: 1em; /* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
 }
 .modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #7c1f17;
-    width: 80%;
+	background-color: #fefefe;
+	margin: auto;
+	padding: 20px;
+	border: 1px solid #7c1f17;
+	width: 80%;
 }
-
+.modal-description{
+	font-family: "roboto", sans-serif;
+}
 @media (min-width: 600px){
 	section{
 		display: grid;
@@ -91,6 +93,12 @@ section img{
 	}
 	.list-product{
 		border: solid 1px #7c1f17;
+	}
+	.modal {
+		padding-top: 5em;
+	}
+	.modal img{
+		width: auto;
 	}
 }
 
