@@ -1,4 +1,5 @@
 /*jslint es6*/
+
 "use strict";
 const main = document.querySelector("main");
 const container = document.createElement('section');
@@ -20,13 +21,17 @@ function callback(entries, observer) {
     entries.forEach(entry => {
         console.log(entry.isIntersecting);
         if (entry.isIntersecting) {//observer fires once when the page loads
+            if(globalData){//Global data er undefined første gang den kaldes, så splitdata fejler
                 splitData(globalData, 0, 6);
+            }
         }
     });
 };
 
 function loadJSON(link, from, to){
-    fetch(link).then((e)=>e.json()).then((data)=>splitData(data, from, to));
+    fetch(link).then((e)=>e.json()).then((data)=>{
+        splitData(data, from, to)
+    });
 }
 
 function loadDetails(link){
@@ -34,6 +39,7 @@ function loadDetails(link){
 }
 
 function splitData(data, from, to){
+    console.log(data, from, to)
     let part = data.slice(from, to);
     data.splice(from, to);
     globalData = data;
