@@ -19,53 +19,32 @@
 		<header>
 			<img class="logo" src="images/logo.png">
 		</header>
-
-		<section></section>
-
+		<main></main>
+		<div id="loadmore">loading...</div>
+		<div class="modal hide">
+			<div class="modal-content">
+				<h3 class="modal-name">data-name</h3>
+				<img class="modal-image" src="data-img" alt="data-caption">
+				<p class="modal-description">data-longdescription</p>
+				<h4 class="modal-price">data-price</h4>
+				<h4 class="modal-discount">data-discount</h4>
+				<button>Close</button>
+			</div>
+		</div>
+		<template class="category">
+			<h1 class="page-header">data-category</h1>
+		</template>
 		<template class="product">
-			<article class="list-product">
-				<a href="data-big-image">
+			<div class="list-product">
+				<a href="#">
 					<img class="product-small-img" src="data-small-img" alt="data-caption">
 				</a>
 				<h3 class="name">data-name</h3>
-				<p class="category">data-category</p>
-				<h4 class="price"><span>data-price</span> kr.</h4>
+				<h4 class="price">data-price</h4>
+				<h4 class="discount">data-discount</h4>
 				<button>details</button>
-			</article>
+			</div>
 		</template>
-
-		<script>
-			let productlist_link = "http://kea-alt-del.dk/t5/api/productlist";
-			let image_path = "http://kea-alt-del.dk/t5/site/imgs/small/";
-			let section = document.querySelector('section');
-			let template = document.querySelector('.product').content;
-
-			function getData(link){
-				fetch(link).then(function(response){
-					return response.json();
-				}).then(function(json){
-					return show(json);
-				});
-			}
-
-			function show(json){
-				json.forEach(function(product){
-					console.log(product.name + " kr " + product.price);
-					let clone = template.cloneNode(true);
-					clone.querySelector('.name').textContent=product.name;
-					section.appendChild(clone);
-				});
-			}
-
-
-			getData(productlist_link);
-		</script>
-
+		<script src="js/t.js"></script>
 	</body>
 </html>
-
-
-
-
-
-
