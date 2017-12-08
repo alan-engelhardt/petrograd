@@ -52,7 +52,9 @@ section img, .modal img{
 .price{
 	color: #7c1f17;
 }
-
+#loadmore{
+	padding-bottom: 5em;
+}
 .modal {
 	display: none; /* Hidden by default */
 	position: fixed; /* Stay in place */
