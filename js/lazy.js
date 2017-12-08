@@ -73,7 +73,9 @@ function showList(data) {
         container.appendChild(clone);
     });
     main.appendChild(container);
-    main.appendChild(target);
+    if (globalData.length > 0) {
+        main.appendChild(target);
+    }
 }
 
 modal.addEventListener("click", function () {
