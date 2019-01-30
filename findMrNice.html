@@ -173,6 +173,7 @@
 				for(let i=0; i<area; i++){
 					const newElm = document.createElement("div");
 					newElm.addEventListener("click", clicked);
+					newElm.style.backgroundColor="hsl("+(Math.random()*50)+", 70%, 50%)";
 					if(Math.random() < numGood){
 						newElm.classList.add("goodGuy");
 					}
@@ -201,6 +202,7 @@
 			}
 
 			function clicked(){
+				this.style.backgroundColor="inherit";
 				if(this.classList.contains("goodGuy")){
 					this.classList.add("good");
 					kid.currentTime = 0;
